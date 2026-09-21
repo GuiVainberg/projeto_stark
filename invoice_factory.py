@@ -41,7 +41,7 @@ def generate_random_invoices() -> None:
     return print(f"{invoices_amount} invoices sucessfully created!")
 
 def build_invoice_data() -> dict:
-    amount = random.randint(0,100000000)
+    amount = random.randint(0,50000)
     name_list = ["Guilherme", "Natally", "Camila", "Rafael"]
     name = random.choice(name_list)
 
