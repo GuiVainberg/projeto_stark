@@ -66,7 +66,22 @@
 
 9. Já existe uma base de contas pra eu me basear?
     - Não.
+    - To criando tudo na mão mesmo, mas me incomoda o nível de "aleatoriedade".
+    - Vale a pena pegar um tempinho pra simular invoices mais reais.
 
+10. Bug ao tentar parsear evento
+    - A lib de api que estou usando é o Flask e ela retorna a request.data já como byte e não como string.
+    - A função verify do pacote ecdsa faz o próprio encoding na linha 36, assumindo que recebe uma string.
+        - byteMessage = hashfunc(toBytes(message)).digest()
+    - O parser do SDK da Stark não espera esse retorno, então ele apenas passa o erro adiante.
+        - "AttributeError: 'bytes' object has no attribute 'encode'. Did you mean: 'decode'?"
+    - A solução pra isso é fácil, só eu dar um decode antes de enviar.
+    - Mas uma solução ainda melhor seria a própria função _is_signature_valid já considerar o formato de retorno do Flask e fazer a conversão.
+    - Dessa forma, qualquer projeto que usar Flask não precisaria dar decode pra cada chamada e ainda evitaríamos um erro/traceback confuso
+    - Tomei a liberdade de criar a função normalize_content em utils/parse.py
+
+11. Criei vários invoices pra testar a mudança que fiz no ponto 10 mas aparentemente não precisava, todos os eventos que deram errado foram capturados novamente.
+    - Tenho que lembrar de checar se nenhum pagamento de invoice quando quebrou ficou de fora do fluxo de transferência.
 
 Houston, we have a problem!
 https://challenge-guilherme-moraes.sandbox.starkbank.com/corporate-card/analytics
