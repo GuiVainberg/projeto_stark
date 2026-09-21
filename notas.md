@@ -83,6 +83,23 @@
 11. Criei vários invoices pra testar a mudança que fiz no ponto 10 mas aparentemente não precisava, todos os eventos que deram errado foram capturados novamente.
     - Tenho que lembrar de checar se nenhum pagamento de invoice quando quebrou ficou de fora do fluxo de transferência.
 
+12. Tentei forçar um pagamento atrasado pra confirmar que amount já inclui fine_amount e interest_amount, mas o sandbox paga rápido demais pra testar isso de forma confiável.
+
+13. Invoice aceita pagamentos com ted também? 
+    - Notei que toda fee vem zerada, o que faz sentido se todo invoice for pago como pix.
+    - A documentação fala que é possível pagar um invoice fazendo um depósito para o número da conta.
+    - Vale adicionar testes pra casos como depósito, que talvez não exista na simulação.
+
+14. Inconsistência entre SDK e documentação do objeto Transfer()
+    - Na documentação o account_type está como optional
+        - "accountType OPTIONAL
+        Receiver bank account type. Options are "checking", "payment", "savings" and "salary". "checking" is the default. This parameter only has effect on Pix Transfers."
+    - Na SDK ele está como required
+        - def __init__(self, amount, name, tax_id, bank_code, branch_code, account_number, account_type,
+                    external_id=None, scheduled=None, description=None, display_description=None, transaction_ids=None, metadata=None, 
+                    fee=None, tags=None, rules=None, status=None, id=None, created=None, updated=None
+                    ):
+
 Houston, we have a problem!
 https://challenge-guilherme-moraes.sandbox.starkbank.com/corporate-card/analytics
 GET https://sandbox.api.starkbank.com/v2/corporate-purchase-series/center?step=month&after=2026-04-23&before=2026-09-20 400 (Bad Request)
