@@ -100,17 +100,16 @@ já é a versão nova.
 
 ## Resultados da corrida de 24h
 
-Isso aqui é parcial, a corrida ainda está rodando no momento desse commit, com 3 dos 8 ciclos
-concluídos.
+Isso aqui é parcial, a corrida ainda está rodando no momento desse commit, faltando o ciclo final
+(~14h47).
 
-- Invoices emitidos: 25
-- Invoices pagos/creditados: 23
-- Transfers realizadas: 23 (sucesso: 23, falha: 0)
+- Invoices emitidos: 76
+- Invoices pagos/creditados: 69
+- Transfers realizadas: 69 (sucesso: 69, falha: 0)
 - Duplicatas detectadas: 0, auditei por `event_id` (todos únicos) e por `external_id`→`transfer_id`
   (relação 1 para 1, nenhum `external_id` gerou mais de uma transfer)
 
-Atualizo os números finais dos 8 ciclos aqui quando a corrida terminar (~14h47 do dia seguinte ao
-início).
+Atualizo os números finais aqui quando o último ciclo terminar.
 
 ## O que eu aprendi
 
