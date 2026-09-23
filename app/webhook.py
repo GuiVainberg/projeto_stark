@@ -1,8 +1,8 @@
-from flask import Flask, request
 import starkbank
+from event_log import is_processed, load_processed_ids, log_event, mark_processed
+from flask import Flask, request
 from stark_client import project
 from transfer_service import send_invoice_money
-from event_log import log_event, is_processed, mark_processed
 
 app = Flask(__name__)
 
@@ -26,11 +26,12 @@ def receive_event():
         log_event(body)
     except starkbank.error.InvalidSignatureError:
         return "Assinatura inválida", 400
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 -- intencional: garante 500 logado, nunca silencioso
         print(f"Erro inesperado processando webhook: {e}")
         return "Erro interno", 500
     return "", 200
 
 
 if __name__ == "__main__":
+    load_processed_ids()
     app.run(port=5000)

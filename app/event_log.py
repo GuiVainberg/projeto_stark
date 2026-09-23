@@ -1,5 +1,7 @@
 import json
 
+LOG_FILE = "webhook.log"
+
 processed_ids = set()
 
 
@@ -9,6 +11,18 @@ def is_processed(event_id):
 
 def mark_processed(event_id):
     processed_ids.add(event_id)
+
+
+def load_processed_ids():
+    try:
+        with open(LOG_FILE) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                processed_ids.add(json.loads(line)["event_id"])
+    except FileNotFoundError:
+        pass
 
 
 def log_event(event):
@@ -27,5 +41,5 @@ def log_event(event):
         data["external_id"] = event.log.transfer.external_id
         data["status"] = event.log.transfer.status
 
-    with open("webhook.log", "a") as f:
+    with open(LOG_FILE, "a") as f:
         f.write(json.dumps(data) + "\n")
