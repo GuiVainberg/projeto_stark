@@ -25,7 +25,7 @@ Configurar `.env` com `privateKeyPath` e `projectID`.
 Rode esses três processos, em terminais separados, todos a partir da raiz do projeto:
 
 ```bash
-python app/webhook.py                                  # recebe os webhooks
+python app/webhook.py                                   # recebe os webhooks
 ngrok http 5000 --url <seu-domínio>                     # expõe o webhook
 python app/scheduler.py                                 # dispara as invoices a cada 3h
 ```
@@ -126,7 +126,7 @@ acabou me atrapalhando em visualizar as chamadas.
 
 Como optei por focar mais no aprendizado, na compreensão da API e dos processos do time de TI da Stark,
 fiz a escolha de não automatizar nenhuma configuração ou escrever a solução mais robusta para produção. 
-Dessa forma algumas escolhas como usar um Banco de Dados, colocar o programa na núvem, escolher design 
+Dessa forma algumas escolhas como usar um Banco de Dados, colocar o programa na nuvem, escolher design 
 pattern e implementar um padrão de desenvolvimento específico foram despriorizados.
 
 Isso me permitiu absorver muito mais a cultura de código e fluxo de trabalho do time da Stark, mas houve
