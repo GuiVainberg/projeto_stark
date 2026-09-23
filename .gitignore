@@ -2,4 +2,3 @@
 .venv
 __pycache__
 keys/*
-webhook.log

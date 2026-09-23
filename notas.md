@@ -99,6 +99,16 @@
                     external_id=None, scheduled=None, description=None, display_description=None, transaction_ids=None, metadata=None, 
                     fee=None, tags=None, rules=None, status=None, id=None, created=None, updated=None
                     ):
+15. Passei um tempo tentando entender porque meu listener não tava logando e percebi que o de ontem ainda tava de pé e ouvindo a porta 5000
+    - De algum jeito o windows permitiu os dois ouvirem a mesma porta ao mesmo tempo, mas só a versão mais antiga capturava.
+
+16. Scheduler rodando 24h.
+    - Iniciei as 14:46 o scheduler pra finalizar amanhã antes da entrevista.
+    - Ainda tem várias melhorias que eu quero fazer, mas optei por deixar o Scheduler.py rodar na versão atual por enquanto.
+    - Se ainda tiver tempo, vou usar o log como backup para reiniciar o scheduler.
+
+17. Com o serviço rodando e os testes passando, aproveitei pra refatorar o invoice_factory.py
+    - Decidi usar as bibliotecas faker e validate_docbr pra gerar nomes e cpfs.
 
 Houston, we have a problem!
 https://challenge-guilherme-moraes.sandbox.starkbank.com/corporate-card/analytics
