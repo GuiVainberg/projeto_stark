@@ -419,3 +419,6 @@
 {"event_id": "6472425582100480", "type": "success", "created": "2026-09-23 14:52:16.103831", "error": [], "transfer_id": "5750591785533440", "amount": 19844, "external_id": "5234221675708416", "status": "success"}
 {"event_id": "5641116139913216", "type": "success", "created": "2026-09-23 14:52:19.356892", "error": [], "transfer_id": "5141719471357952", "amount": 35171, "external_id": "5254716622110720", "status": "success"}
 {"event_id": "4732550436618240", "type": "success", "created": "2026-09-23 14:52:22.005962", "error": [], "transfer_id": "4958752019054592", "amount": 17216, "external_id": "5717712855105536", "status": "success"}
+{"event_id": "5492571877408768", "type": "overdue", "created": "2026-09-23 16:45:14.552739", "error": [], "invoice_id": "4853759985319936", "amount": 26726922}
+{"event_id": "5680698558513152", "type": "overdue", "created": "2026-09-23 17:33:03.431241", "error": [], "invoice_id": "4685335392944128", "amount": 9962147}
+{"event_id": "6546769754718208", "type": "overdue", "created": "2026-09-23 17:33:04.390326", "error": [], "invoice_id": "5778141771464704", "amount": 118305}
